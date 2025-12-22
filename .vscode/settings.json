@@ -1,1 +1,24 @@
-{}
+{
+    "version": 3,
+    "configurations": [
+        {
+            "type": "command",
+            "details": {
+                "key": "flutter.doctor"
+            }
+        },
+        {
+            "type": "command",
+            "details": {
+                "key": "flutter.packages.get"
+            }
+        },
+        {
+            "type": "setting",
+            "details": {
+                "key": "dart.flutterSdkPath",
+                "value": "C:/path/to/flutter"
+            }
+        }
+    ]
+}
