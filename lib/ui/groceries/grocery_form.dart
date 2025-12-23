@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../data/mock_grocery_repository.dart';
 import '../../models/grocery.dart';
 
 class NewItem extends StatefulWidget {
@@ -31,7 +30,6 @@ class _NewItemState extends State<NewItem> {
     // Initialize intputs with default settings
     _nameController.text = defautName;
     _quantityController.text = defaultQuantity.toString();
-    _selectedCategory = defaultCategory;
   }
 
   @override
@@ -45,29 +43,10 @@ class _NewItemState extends State<NewItem> {
 
   void onReset() {
     // Will be implemented later - Reset all fields to the initial values
-    _nameController.text = defautName;
-    _quantityController.text = defaultQuantity.toString();
-    setState(() {
-      _selectedCategory = defaultCategory;
-    });
   }
 
   void onAdd() {
-    final name = _nameController.text.trim();
-    final quantity = int.tryParse(_quantityController.text) ?? 1;
-    final category = _selectedCategory;
-
-    if (name.isEmpty) return;
-
-    final newGrocery = Grocery(
-      name: name,
-      quantity: quantity,
-      category: category,
-    );
-
-    dummyGroceryItems.add(newGrocery); // Add to the shared list
-
-    Navigator.of(context).pop(); // Go back to the list screen
+    // Will be implemented later - Create and return the new grocery
   }
 
   @override
@@ -97,24 +76,7 @@ class _NewItemState extends State<NewItem> {
                 Expanded(
                   child: DropdownButtonFormField<GroceryCategory>(
                     initialValue: _selectedCategory,
-                    items: GroceryCategory.values
-                        .map(
-                          (category) => DropdownMenuItem(
-                            value: category,
-                            child: Row(
-                              children: [
-                                Container(
-                                  width: 15,
-                                  height: 15,
-                                  color: category.color,
-                                  margin: const EdgeInsets.only(right: 8),
-                                ),
-                                Text(category.label),
-                              ],
-                            ),
-                          ),
-                        )
-                        .toList(),
+                    items: [  ],
                     onChanged: (value) {
                       if (value != null) {
                         setState(() {
